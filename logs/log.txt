@@ -1,0 +1,5 @@
+2016-01-31 21:03:45 | Logs Cleared: by User Id 1
+2016-02-01 11:21:48 | Login: igorivch logged in.
+2016-02-01 14:01:27 | Login: igorivch logged in.
+2016-02-01 14:57:26 | Login: igorivch logged in.
+2016-02-02 19:59:37 | Login: igorivch logged in.
