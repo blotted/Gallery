@@ -105,6 +105,10 @@ class Photo {
         }
     }
     
+    public function comments() {
+        return Comment::findCommentsOn($this->id);
+    }
+    
     public static function findALL() {
         return self::findBySql("SELECT * FROM " . self::$table_name);
     }
@@ -165,17 +169,13 @@ class Photo {
     
     public function create() {
         global $database;
-        //$attributes = $this->sanitizedAttributes();
+        $attributes = $this->sanitizedAttributes();
+        array_shift($attributes);
         $sql = "INSERT INTO ".self::$table_name." (";
-        $sql .= "filename, type, size, caption";
-       // $sql .= join(", ", array_keys($attributes));
+        $sql .= implode(", ", array_keys($attributes));
         $sql .= ") VALUES ('";
-       // $sql .= join("', '", array_values($attributes));
-        $sql .= $database->escapeValue($this->filename)."', '";
-        $sql .= $database->escapeValue($this->type)."', '";
-        $sql .= $database->escapeValue($this->size)."', '";
-        $sql .= $database->escapeValue($this->caption)."')";
-        
+        $sql .= implode("', '", array_values($attributes));
+        $sql .= "')";
         if($database->query($sql)) {
             $this->id = $database->isertId();
             return true;

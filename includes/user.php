@@ -92,6 +92,10 @@ class User {
         return $clean_attributes;
     }
     
+    public function save() {
+        return isset($this->id) ? $this->update() : $this->create(); 
+    }
+
     public function create() {
         global $database;
         $attributes = $this->sanitizedAttributes();

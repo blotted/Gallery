@@ -3,6 +3,7 @@ require_once '../../includes/functions.php';
 require_once '../../includes/session.php';
 require_once '../../includes/user.php';
 require_once '../../includes/photo.php';
+require_once '../../includes/comment.php';
 require_once '../../includes/config.php';
 require_once '../../includes/database.php';
 
@@ -31,6 +32,7 @@ $photos = Photo::findALL();
               <th>Caption</th>
               <th>Size</th>
               <th>Type</th>
+              <th>Comments</th>
               <th>&nbsp;</th>
           </tr>
     <?php foreach ($photos as $photo): ?> 
@@ -40,6 +42,11 @@ $photos = Photo::findALL();
               <td><?php echo $photo->caption; ?></td>
               <td><?php echo $photo->sizeAsText(); ?></td>
               <td><?php echo $photo->type; ?></td>
+              <td>
+                  <a href="comments.php?id=<?php echo $photo->id; ?>">
+                    <?php echo count($photo->comments()); ?>
+                  </a>
+              </td>
               <td><a href="delete_photo.php?id=<?php echo $photo->id; ?>">Delete</a></td>
           </tr>
     <?php endforeach; ?>      
