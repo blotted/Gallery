@@ -1,8 +1,19 @@
 <?php
 require_once '../includes/functions.php';
+require_once '../includes/pagination.php';
 require_once '../includes/database.php';
 require_once '../includes/databaseObject.php';
-$photos = Photo::findALL();
+
+$page = !empty($_GET['page']) ? (int) $_GET['page'] : 1;
+$per_page = 3;
+$total_count = Photo::countAll();
+//$photos = Photo::findALL();
+
+$pagination = new Pagination($page, $per_page, $total_count);
+$sql = "SELECT * FROM photo ";
+$sql .= "LIMIT {$per_page} ";
+$sql .= "OFFSET {$pagination->offset()}";
+$photos = Photo::findBySql($sql);
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +36,34 @@ $photos = Photo::findALL();
             <p><?php echo $photo->caption; ?></p>
         </div>
     <?php endforeach; ?>
+        
+        <div id="pagination" style="clear: both;">
+        <?php
+        if($pagination->totalPages() >1) {
+            
+            if($pagination->hasPreviousPage()) {
+                echo " <a href=\"index.php?page=";
+                echo $pagination->previousPage();
+                echo "\">&laquo; Previous</a> ";
+            }
+            
+            for($i=1; $i <= $pagination->totalPages(); $i++) {
+                if($i == $page){
+                    echo " <span class=\"selected\">{$i}</span> ";
+                } else {
+                    echo " <a href=\"index.php?page={$i}\">{$i}</a> ";
+                }
+            }
+            
+            if($pagination->hasNextPage()) {
+                echo " <a href=\"index.php?page=";
+                echo $pagination->nextPage();
+                echo "\">Next &raquo;</a> ";
+            }
+            
+        }
+        ?>
+        </div>
     </div>
     <div id="footer">Copyright <?php echo date("Y", time()); ?></div>
 </body>

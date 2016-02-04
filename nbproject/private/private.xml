@@ -4,18 +4,18 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/apache/localhost/www/gallery/public/admin/list_photos.php</file>
-            <file>file:/C:/apache/localhost/www/gallery/public/admin/logfile.php</file>
-            <file>file:/C:/apache/localhost/www/gallery/includes/databaseObject.php</file>
+            <file>file:/C:/apache/localhost/www/gallery/public/stylesheets/main.css</file>
+            <file>file:/C:/apache/localhost/www/gallery/public/admin/delete_comment.php</file>
             <file>file:/C:/apache/localhost/www/gallery/includes/photo.php</file>
             <file>file:/C:/apache/localhost/www/gallery/public/photo.php</file>
+            <file>file:/C:/apache/localhost/www/gallery/includes/pagination.php</file>
             <file>file:/C:/apache/localhost/www/gallery/includes/database.php</file>
             <file>file:/C:/apache/localhost/www/gallery/public/index.php</file>
             <file>file:/C:/apache/localhost/www/gallery/includes/user.php</file>
-            <file>file:/C:/apache/localhost/www/gallery/includes/functions.php</file>
             <file>file:/C:/apache/localhost/www/gallery/public/admin/photo_upload.php</file>
-            <file>file:/C:/apache/localhost/www/gallery/public/admin/login.php</file>
+            <file>file:/C:/apache/localhost/www/gallery/includes/comment.php</file>
             <file>file:/C:/apache/localhost/www/gallery/public/admin/delete_photo.php</file>
-            <file>file:/C:/apache/localhost/www/gallery/public/admin/index.php</file>
+            <file>file:/C:/apache/localhost/www/gallery/public/admin/comments.php</file>
         </group>
     </open-files>
 </project-private>

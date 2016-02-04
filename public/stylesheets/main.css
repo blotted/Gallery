@@ -52,3 +52,5 @@ table.bordered tr th, table.bordered tr td
 {
     border: 1px solid #000000;
 }
+
+#pagination .selected { font-weight: bold; color: #8D0D19; }

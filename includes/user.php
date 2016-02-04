@@ -55,6 +55,14 @@ class User {
         }
         return $object_array;
     }
+    
+    public static function countAll() {
+        global $database;
+        $sql = "SELECT COUNT(*) FROM " . self::$table_name;
+        $result_set = $database->query($sql);
+        $row = $database->fetchArray($result_set);
+        return array_shift($row);
+    }
    
     private static function instantiate($record) {
         $object = new self;

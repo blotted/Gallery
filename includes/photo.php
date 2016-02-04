@@ -120,6 +120,14 @@ class Photo {
         return !empty($result_array) ? array_shift($result_array) : false;
     }
     
+    public static function countAll() {
+        global $database;
+        $sql = "SELECT COUNT(*) FROM " . self::$table_name;
+        $result_set = $database->query($sql);
+        $row = $database->fetchArray($result_set);
+        return array_shift($row);
+    }
+    
     public static function findBySql($sql="") {
         global $database;
         $result_set = $database->query($sql);
